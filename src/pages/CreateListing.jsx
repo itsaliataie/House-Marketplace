@@ -3,13 +3,13 @@ import {getAuth, onAuthStateChanged} from 'firebase/auth'
 import {getStorage, ref, uploadBytesResumable, getDownloadURL} from 'firebase/storage'
 import {addDoc, collection, serverTimestamp} from 'firebase/firestore'
 import {useNavigate} from 'react-router-dom'
-import { toast, Toast } from 'react-toastify'
+import { toast } from 'react-toastify'
 import Spinner from '../components/Spinner'
 import {db} from '../firebase.config'
 import {v4 as uuidv4} from 'uuid'
 
 function CreateListing() {
-
+  // eslint-disable-next-line
   const [geolocationEnabled, setGeolocationEnabled] = useState(false)
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
@@ -110,6 +110,8 @@ function CreateListing() {
                 break
               case 'running':
                 console.log('Upload is running')
+                break
+              default:
                 break
             }
           }, (error) => {
